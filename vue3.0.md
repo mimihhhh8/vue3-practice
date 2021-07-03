@@ -103,3 +103,70 @@
    - 子组件 （如果想要一部分属性绑定在button上一部分在div上就需要在setup里）
    ![avatar](./src/assets/sx4.jpg)
 
+  ## 6.props和context.attrs的区别
+
+  - props要现在当前组件props属性里声明才能取值，attrs不用先声明
+  例如：
+    ```js
+    props:{
+      size:String
+    }
+    ```
+  - props不包含事件，attrs包含
+    我们没有办法在props里声明click这一类的事件
+  
+  - props没有声明的属性，会跑到attrs里
+
+  - 在props里声明了size，所以attrs里就没有size了
+
+  ## 7.slot具名插槽的使用
+  - vue2中的用法
+  子组件
+    ```html
+    <slot name="title">
+    ```
+  父组件
+   ```html
+     <template slot="title">
+      <h1>哈哈哈</h1>
+     </template>
+   ```
+  - vue3中子组件用法不变，父组件需要使用v-slot:插槽名
+  父组件
+   ```html
+    <template v-slot:title>
+      <h1>哈哈哈</h1>
+    </template>
+   ```
+
+  ## 8.Teleport传送门组件
+    - minDialog.vue
+    ```html
+    <template>
+      <teleport to="#dialog" v-if="isshow">
+        <h2>我是传送门组件teleport</h2>
+      </teleport>
+    </template>
+    <script>
+    export default {
+      props: {
+        isshow: {
+          default: true,
+          type: Boolean,
+        },
+      },
+      setup() {},
+    };
+    </script>
+
+    ```
+
+    - index.html
+    ```html
+    <div id="dialog"></div>
+    ```
+
+    - Home.vue
+    ```html
+     <MinDialog :isShow="false" />
+    ```

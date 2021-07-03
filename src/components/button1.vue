@@ -32,7 +32,6 @@ export default {
   inheritAttrs: false,
   setup(props, context) {
     const { size, ...rest } = context.attrs;
-    console.log(size, rest);
 
     const handleClick = () => {
       rest.onClick2();

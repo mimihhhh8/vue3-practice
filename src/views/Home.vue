@@ -4,6 +4,9 @@
     <CustomInput :age="age" :name="name" @itemclick="itemclickFun" />
     <!-- vue3中的属性绑定 -->
     <Button @click="onClick1" @click2="onClick2" />
+
+    <!-- teleport -->
+    <MinDialog :isShow="true" />
   </div>
 </template>
 
@@ -13,12 +16,14 @@ import HelloWorld from "@/components/HelloWorld.vue";
 import CustomInput from "@/components/custom-input.vue";
 import { ref } from "vue";
 import Button from "@/components/button1.vue";
+import MinDialog from "@/components/minDialog.vue";
 export default {
   name: "Home",
   components: {
     HelloWorld,
     CustomInput,
     Button,
+    MinDialog,
   },
   data() {
     return {
