@@ -2,6 +2,8 @@
   <div class="home">
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <CustomInput :age="age" :name="name" @itemclick="itemclickFun" />
+    <!-- vue3中的属性绑定 -->
+    <Button @click="onClick1" @click2="onClick2" />
   </div>
 </template>
 
@@ -10,11 +12,13 @@
 import HelloWorld from "@/components/HelloWorld.vue";
 import CustomInput from "@/components/custom-input.vue";
 import { ref } from "vue";
+import Button from "@/components/button1.vue";
 export default {
   name: "Home",
   components: {
     HelloWorld,
     CustomInput,
+    Button,
   },
   data() {
     return {
@@ -33,9 +37,22 @@ export default {
       console.log("子组件的值：", prop1, prop2);
     };
 
+    /**
+     * 2、vue3中的属性绑定
+     */
+    const onClick1 = () => {
+      console.log("1111111");
+    };
+
+    const onClick2 = () => {
+      console.log("2222222");
+    };
+
     return {
       names,
       itemclickFun,
+      onClick1,
+      onClick2,
     };
   },
 };

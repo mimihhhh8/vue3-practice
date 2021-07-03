@@ -90,3 +90,16 @@
    - $attrs 属性解释:包含了父作用域中不作为组件 props 或自定义事件的 attribute 绑定和事件。当一个组件没有声明任何
    prop 时，这里会包含所有父作用域的绑定，并且可以通过 v-bind="$attrs" 传入内部组件——这在创建高阶的组件时会非常有用。
    - inheritAttrs属性解释：如果你不希望组件的根元素继承特性，你可以在组件的选项中设置 inheritAttrs: false
+
+   - 父组件
+   ![avatar](./src/assets/sx2.jpg)
+
+   - 子组件（子组件的根元素也绑定事件的情况）
+   ![avatar](./src/assets/sx1.jpg)
+
+   - 子组件（子组件的根元素不绑定事件的情况）
+    ![avatar](./src/assets/sx3.jpg)
+  
+   - 子组件 （如果想要一部分属性绑定在button上一部分在div上就需要在setup里）
+   ![avatar](./src/assets/sx4.jpg)
+
