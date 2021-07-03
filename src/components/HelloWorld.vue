@@ -1,5 +1,9 @@
 <template>
   <div>vue3练习</div>
+  <div>{{ count }}</div>
+  <div>
+    <input type="text" v-model="text" />
+  </div>
 </template>
 
 <script>
@@ -8,8 +12,22 @@ export default {
   props: {
     msg: String,
   },
+
+  data() {
+    return {
+      count: 8888,
+      text: "111",
+    };
+  },
+
+  watch: {
+    text(val) {
+      console.log(val);
+    },
+  },
+
+  setup() {},
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less"></style>
